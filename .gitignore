@@ -1,0 +1,12 @@
+# Archivos del sistema operativo
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Configuraciones y carpetas de editores
+.vscode/
+.idea/
+
+# Archivos temporales o de logs de PHP
+*.log
