@@ -1,28 +1,24 @@
 <?php
-// Permitir solicitudes de cualquier origen (CORS)
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 
-// Incluir la conexión a la base de datos
 require_once 'config/database.php';
+require_once 'controllers/ClienteController.php';
+// require_once 'controllers/ProductoController.php'; // Erick
+// require_once 'controllers/PedidoController.php';   // José
 
-// Instanciar la base de datos
 $database = new Database();
 $db = $database->getConnection();
 
-if ($db) {
-    // Si la conexión es exitosa
-    http_response_code(200);
-    echo json_encode(array(
-        "success" => true,
-        "mensaje" => "¡Conexión exitosa a la base de datos cafeteria_api!"
-    ));
-} else {
-    // Si falla la conexión
-    http_response_code(500);
-    echo json_encode(array(
-        "success" => false,
-        "mensaje" => "Error de conexión a la base de datos."
-    ));
+$recurso = $_GET['resource'] ?? '';
+$id = $_GET['id'] ?? null;
+
+switch ($recurso) {
+    case 'clientes':
+        (new ClienteController($db))->manejarPeticion($_SERVER['REQUEST_METHOD'], $id);
+        break;
+    default:
+        http_response_code(404);
+        echo json_encode(["success" => false, "mensaje" => "Usa ?resource=clientes|productos|pedidos"]);
 }
-?>
