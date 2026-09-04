@@ -1,0 +1,270 @@
+{
+  "info": {
+    "_postman_id": "b812f8e1-93e1-4c12-9c98-productos-erick",
+    "name": "Cafetería API - Módulo Productos (Erick López)",
+    "description": "Colección de pruebas para el Módulo Productos correspondiente a las Actividades 2, 6, 9, 11 y 13 de la Guía Práctica.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Listar Productos (200)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost/cafeteria_api/?resource=productos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "path": ["cafeteria_api", ""],
+          "query": [
+            {
+              "key": "resource",
+              "value": "productos"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2. Consultar Producto Existente (200)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost/cafeteria_api/?resource=productos&id=1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "path": ["cafeteria_api", ""],
+          "query": [
+            {
+              "key": "resource",
+              "value": "productos"
+            },
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "3. Consultar Producto Inexistente (404)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost/cafeteria_api/?resource=productos&id=999",
+          "protocol": "http",
+          "host": ["localhost"],
+          "path": ["cafeteria_api", ""],
+          "query": [
+            {
+              "key": "resource",
+              "value": "productos"
+            },
+            {
+              "key": "id",
+              "value": "999"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "4. Registrar Producto Válido (201)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Mocaccino Especial\",\n  \"categoria\": \"Bebidas\",\n  \"precio\": 2.80,\n  \"stock\": 15,\n  \"activo\": true\n}"
+        },
+        "url": {
+          "raw": "http://localhost/cafeteria_api/?resource=productos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "path": ["cafeteria_api", ""],
+          "query": [
+            {
+              "key": "resource",
+              "value": "productos"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "5. Registrar con Precio Negativo - Regla 1 (400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Galleta Avena\",\n  \"categoria\": \"Postres\",\n  \"precio\": -1.50,\n  \"stock\": 10,\n  \"activo\": true\n}"
+        },
+        "url": {
+          "raw": "http://localhost/cafeteria_api/?resource=productos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "path": ["cafeteria_api", ""],
+          "query": [
+            {
+              "key": "resource",
+              "value": "productos"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6. Registrar con Stock Negativo - Regla 2 (400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Jugo de Fresa\",\n  \"categoria\": \"Bebidas\",\n  \"precio\": 2.00,\n  \"stock\": -5,\n  \"activo\": true\n}"
+        },
+        "url": {
+          "raw": "http://localhost/cafeteria_api/?resource=productos",
+          "protocol": "http",
+          "host": ["localhost"],
+          "path": ["cafeteria_api", ""],
+          "query": [
+            {
+              "key": "resource",
+              "value": "productos"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "7. Actualizar Producto Existente (200)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"precio\": 2.75,\n  \"stock\": 28\n}"
+        },
+        "url": {
+          "raw": "http://localhost/cafeteria_api/?resource=productos&id=1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "path": ["cafeteria_api", ""],
+          "query": [
+            {
+              "key": "resource",
+              "value": "productos"
+            },
+            {
+              "key": "id",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "8. Eliminar Producto (200)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost/cafeteria_api/?resource=productos&id=11",
+          "protocol": "http",
+          "host": ["localhost"],
+          "path": ["cafeteria_api", ""],
+          "query": [
+            {
+              "key": "resource",
+              "value": "productos"
+            },
+            {
+              "key": "id",
+              "value": "11"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "9. Consulta Adicional por Categoría en API (200)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost/cafeteria_api/?resource=productos&categoria=Bebidas",
+          "protocol": "http",
+          "host": ["localhost"],
+          "path": ["cafeteria_api", ""],
+          "query": [
+            {
+              "key": "resource",
+              "value": "productos"
+            },
+            {
+              "key": "categoria",
+              "value": "Bebidas"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "10. Consulta Adicional por Nombre en API (200)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost/cafeteria_api/?resource=productos&nombre=cafe",
+          "protocol": "http",
+          "host": ["localhost"],
+          "path": ["cafeteria_api", ""],
+          "query": [
+            {
+              "key": "resource",
+              "value": "productos"
+            },
+            {
+              "key": "nombre",
+              "value": "cafe"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

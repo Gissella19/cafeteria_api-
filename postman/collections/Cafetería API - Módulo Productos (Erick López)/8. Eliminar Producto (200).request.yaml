@@ -1,0 +1,7 @@
+$kind: http-request
+url: http://localhost/cafeteria_api/?resource=productos&id=11
+method: DELETE
+queryParams:
+  resource: productos
+  id: "11"
+order: 8000

@@ -1,0 +1,16 @@
+$kind: http-request
+url: http://localhost/cafeteria_api/?resource=productos&id=1
+method: PUT
+headers:
+  Content-Type: application/json
+queryParams:
+  resource: productos
+  id: "1"
+body:
+  type: text
+  content: |-
+    {
+      "precio": 2.75,
+      "stock": 28
+    }
+order: 7000

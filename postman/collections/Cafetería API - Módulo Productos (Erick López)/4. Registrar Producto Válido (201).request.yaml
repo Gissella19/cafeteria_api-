@@ -1,0 +1,18 @@
+$kind: http-request
+url: http://localhost/cafeteria_api/?resource=productos
+method: POST
+headers:
+  Content-Type: application/json
+queryParams:
+  resource: productos
+body:
+  type: text
+  content: |-
+    {
+      "nombre": "Mocaccino Especial",
+      "categoria": "Bebidas",
+      "precio": 2.80,
+      "stock": 15,
+      "activo": true
+    }
+order: 4000

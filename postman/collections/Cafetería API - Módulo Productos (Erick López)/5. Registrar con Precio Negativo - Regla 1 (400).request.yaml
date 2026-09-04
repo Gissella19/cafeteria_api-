@@ -1,0 +1,18 @@
+$kind: http-request
+url: http://localhost/cafeteria_api/?resource=productos
+method: POST
+headers:
+  Content-Type: application/json
+queryParams:
+  resource: productos
+body:
+  type: text
+  content: |-
+    {
+      "nombre": "Galleta Avena",
+      "categoria": "Postres",
+      "precio": -1.50,
+      "stock": 10,
+      "activo": true
+    }
+order: 5000

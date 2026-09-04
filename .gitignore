@@ -7,6 +7,7 @@ Desktop.ini
 # Configuraciones y carpetas de editores
 .vscode/
 .idea/
+.postman/
 
 # Archivos temporales o de logs de PHP
 *.log

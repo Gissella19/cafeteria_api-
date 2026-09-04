@@ -1,0 +1,7 @@
+$kind: http-request
+url: http://localhost/cafeteria_api/?resource=productos&categoria=Bebidas
+method: GET
+queryParams:
+  resource: productos
+  categoria: Bebidas
+order: 9000

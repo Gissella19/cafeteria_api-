@@ -1,0 +1,7 @@
+$kind: http-request
+url: http://localhost/cafeteria_api/?resource=productos&id=1
+method: GET
+queryParams:
+  resource: productos
+  id: "1"
+order: 2000
