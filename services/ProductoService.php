@@ -143,6 +143,11 @@ class ProductoService
             : ["error" => true, "codigo" => 500, "mensaje" => "No se pudo actualizar el producto"];
     }
 
+    public function actualizarStockDesdePedido($id, $nuevoStock)
+    {
+        return $this->productoModel->actualizarStock($id, $nuevoStock);
+    }
+
     public function eliminarProducto($id)
     {
         if (!$this->productoModel->buscarPorId($id)) {
